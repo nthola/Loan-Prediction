@@ -1,0 +1,24 @@
+- name: Install Dependencies
+  run: pip install -r requirements.txt
+
+- name: Install Django and related packages
+  run: |
+    pip install Django>=3.2,<4.0
+    pip install djangorestframework>=3.12,<4.0
+    pip install pytest-django>=4.0
+
+- name: Lint Code
+  run: |
+    pip install flake8 black
+    flake8 .
+    black --check .
+
+- name: Run Tests
+  run: pytest tests.py
+  
+- name: Build Documentation
+  run: sphinx-build -b html docs/ docs/_build/
+
+- name: Deploy to GitHub Pages
+  run: gh-pages -d docs/_build/html
+

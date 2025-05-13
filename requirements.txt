@@ -1,0 +1,7 @@
+Django>=3.2,<4.0
+djangorestframework>=3.12,<4.0
+pytest-django>=4.0
+pandas
+numpy
+joblib
+scikit-learn
